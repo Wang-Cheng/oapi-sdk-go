@@ -8414,7 +8414,7 @@ func (iterator *ListAppDashboardIterator) Next() (bool, *AppDashboard, error) {
 		}
 
 		if resp.Code != 0 {
-			return false, nil, errors.New(fmt.Sprintf("Code:%d,Msg:%s", resp.Code, resp.Msg))
+            return false, nil, errors.New(fmt.Sprintf("Code:%d,Msg:%s,LogId:%s", resp.Code, resp.Msg, resp.RequestId()))
 		}
 
 		if len(resp.Data.Dashboards) == 0 {
